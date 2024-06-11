@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    {% if title %}
+        <title>Dashboard - {{ title }}</title>
+    {% else %}
+        <title>Dashboard</title>
+    {% endif %}
+</head>
+<body>
+
+    <header>
+        <div class="info-header">
+            <h3>Dashboard</h3>
+        </div> <!--class="info-header"-->
+        <div class="info-header">
+            <i class="fa-solid fa-brain"></i>
+        </div> <!--class="info-header"-->
+    </header>
+
+    <section class="main">
+        <div class="sidebar">
+            <h3>Menu</h3>
+            {% block sidebar %}
+            {% endblock %}
+            <br/>
+            <hr>
+        </div> <!--class="sidebar"-->
+
+        <div class="content">
+            <div class="titulo-secao">
+                {% block titulosecao %}
+                {% endblock %}
+            </div> <!--class="titulo-secao"-->
+
+            <div class="graph">
+                <div class="filtros">
+                    <form method="POST">
+                        <div class="ano">
+                            <input id="todos" type="checkbox" value="todos" name="years">
+                            <label for="todos"> Todos </label>
+                            <input id="2014" type="checkbox" value="2014" name="years">
+                            <label for="2014"> 2014 </label>
+                            <input id="2015" type="checkbox" value="2015" name="years">
+                            <label for="2015"> 2015 </label>
+                            <input id="2016" type="checkbox" value="2016" name="years">
+                            <label for="2016"> 2016 </label>
+                            <input id="2017" type="checkbox" value="2017" name="years">
+                            <label for="2017"> 2017 </label>
+                            <input id="2018" type="checkbox" value="2018" name="years">
+                            <label for="2018"> 2018 </label>
+                            <input id="2019" type="checkbox" value="2019" name="years">
+                            <label for="2019"> 2019 </label>
+                            <input id="2020" type="checkbox" value="2020" name="years">
+                            <label for="2020"> 2020 </label>
+                            <input id="2021" type="checkbox" value="2021" name="years">
+                            <label for="2021"> 2021 </label>
+                            <input id="2022" type="checkbox" value="2022" name="years">
+                            <label for="2022"> 2022 </label>
+                            <input id="2023" type="checkbox" value="2023" name="years">
+                            <label for="2023"> 2023 </label>
+                        </div> <!--class="ano"-->
+                        
+                        <button id="button-ano" type="submit">Filtrar</button>
+                    </form>
+                </div> <!--class="filtros"-->
+
+                <div class="plot">
+                    {{ plot | safe }}
+                </div> <!--class="plot"-->
+
+            </div> <!--class="graph"-->
+            
+        </div> <!--class="content"-->
+
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('todos').addEventListener('change', function() {
+                var checkboxes = document.getElementsByName('years');
+                for (var i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].id != 'todos') {
+                        checkboxes[i].checked = this.checked;
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
