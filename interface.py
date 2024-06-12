@@ -54,6 +54,66 @@ def cid():
 
     return render_template('cid.html', plot=fig.to_html())
 
+@app.route('/cobertura', methods=['GET', 'POST'])
+def cobertura():
+    fig = graphs.plot_pie('COB_ESF')
+
+    if request.method == 'POST':
+        years = request.form.getlist('years')
+        fig = graphs.plot_pie('COB_ESF', years)
+
+    return render_template('cobertura.html', plot=fig.to_html())
+
+@app.route('/situacaorua', methods=['GET', 'POST'])
+def situacaorua():
+    fig = graphs.plot_pie('SIT_RUA')
+
+    if request.method == 'POST':
+        years = request.form.getlist('years')
+        fig = graphs.plot_pie('SIT_RUA', years)
+
+    return render_template('situacaorua.html', plot=fig.to_html())
+
+@app.route('/sexo', methods=['GET', 'POST'])
+def sexo():
+    fig = graphs.plot_pie('SEXOPAC')
+
+    if request.method == 'POST':
+        years = request.form.getlist('years')
+        fig = graphs.plot_pie('SEXOPAC', years)
+
+    return render_template('sexo.html', plot=fig.to_html())
+
+@app.route('/droga', methods=['GET', 'POST'])
+def droga():
+    fig = graphs.plot_pie('TP_DROGA')
+
+    if request.method == 'POST':
+        years = request.form.getlist('years')
+        fig = graphs.plot_pie('TP_DROGA', years)
+
+    return render_template('droga.html', plot=fig.to_html())
+
+@app.route('/local', methods=['GET', 'POST'])
+def local():
+    fig = graphs.plot_pie('LOC_REALIZ')
+
+    if request.method == 'POST':
+        years = request.form.getlist('years')
+        fig = graphs.plot_pie('LOC_REALIZ', years)
+
+    return render_template('local.html', plot=fig.to_html())
+
+@app.route('/procedimento', methods=['GET', 'POST'])
+def procedimento():
+    fig = graphs.plot_pie('PA_PROC_ID')
+
+    if request.method == 'POST':
+        years = request.form.getlist('years')
+        fig = graphs.plot_pie('PA_PROC_ID', years)
+
+    return render_template('procedimento.html', plot=fig.to_html())
+
 @app.route('/')
 def home():
     return render_template('home.html')
