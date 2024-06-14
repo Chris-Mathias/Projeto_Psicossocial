@@ -1,8 +1,23 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 import graphs
 
 app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return redirect(url_for('login'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        login = request.form['login']
+        password = request.form['password']
+        
+        if login == 'admin' and password == 'admin':
+            return redirect(url_for('estabelecimentos'))
+        
+    return render_template('login.html')
 
 @app.route('/estabelecimentos', methods=['GET', 'POST'])
 def estabelecimentos():
@@ -113,10 +128,6 @@ def procedimento():
         fig = graphs.plot_pie('PA_PROC_ID', years)
 
     return render_template('procedimento.html', plot=fig.to_html())
-
-@app.route('/')
-def home():
-    return render_template('home.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

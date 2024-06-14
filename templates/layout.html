@@ -41,8 +41,8 @@
                 <div class="filtros">
                     <form method="POST">
                         <div class="ano">
-                            <input id="todos" type="checkbox" value="todos" name="years">
-                            <label for="todos"> Todos </label>
+                            <input id="todos-ano" type="checkbox" value="todos-ano" name="years">
+                            <label for="todos-ano"> Todos </label>
                             <input id="2014" type="checkbox" value="2014" name="years">
                             <label for="2014"> 2014 </label>
                             <input id="2015" type="checkbox" value="2015" name="years">
@@ -64,8 +64,17 @@
                             <input id="2023" type="checkbox" value="2023" name="years">
                             <label for="2023"> 2023 </label>
                         </div> <!--class="ano"-->
+
+                        <div class="ano">
+                            <input id="todos-sexo" type="checkbox" value="todos-sexo" name="sexos">
+                            <label for="todos-sexo"> Ambos </label>
+                            <input id="M" type="checkbox" value="M" name="sexos">
+                            <label for="M"> Masculino </label>
+                            <input id="F" type="checkbox" value="F" name="sexos">
+                            <label for="F"> Feminino </label>
+                        </div> <!--class="sexo"-->
                         
-                        <button id="button-ano" type="submit">Filtrar</button>
+                        <button id="button-filter" type="submit">Filtrar</button>
                     </form>
                 </div> <!--class="filtros"-->
 
@@ -83,10 +92,22 @@
 
     <script>
         window.onload = function() {
-            document.getElementById('todos').addEventListener('change', function() {
+            document.getElementById('todos-ano').addEventListener('change', function() {
                 var checkboxes = document.getElementsByName('years');
                 for (var i = 0; i < checkboxes.length; i++) {
-                    if (checkboxes[i].id != 'todos') {
+                    if (checkboxes[i].id != 'todos-ano') {
+                        checkboxes[i].checked = this.checked;
+                    }
+                }
+            });
+        }
+    </script>
+    <script>
+        window.onload = function() {
+            document.getElementById('todos-sexo').addEventListener('change', function() {
+                var checkboxes = document.getElementsByName('sexos');
+                for (var i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].id != 'todos-sexo') {
                         checkboxes[i].checked = this.checked;
                     }
                 }
