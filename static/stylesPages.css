@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 2%;
+    background-color: #599B89;
+    position: sticky;
+    top: 0;
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.sidebar {
+    width: 15%;
+    background-color: #99C6BA;
+    height: 100%;
+}
+
+.sidebar h3 {
+    color: #526174;
+    font-size: 20px;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: #526174;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 20px 20px;
+}
+
+.sidebar a:hover {
+    background-color: #599B89;
+    color: #ffffff;
+    border-left: 5px solid #ffffff;
+}
+
+.sidebar a>svg {
+    margin-right: 5px;
+}
+
+.sidebar a.sidebar-active {
+    background-color: #599B89;
+    color: #ffffff;
+    border-left: 5px solid #ffffff;
+}
+
+.content {
+    width: 85%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.titulo-secao {
+    background-color: #ffffff;
+    color: #526174;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.titulo-secao p {
+    font-size: 18px;
+    color: #526174;
+}
+
+.titulo-secao svg {
+    margin-right: 5px;
+    color: #599B89;
+}
+
+.graph {
+    background-color: #ffffff;
+    padding: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+}
+
+.plot {
+    display: block;
+    width: 90%;
+}
+
+/* Filtros */
+
+.filters {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #ffffff;
+}
+
+.filter {
+    min-width: 250px;
+    max-width: 45%;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.select-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #526174;
+    cursor: pointer;
+    background-color: #fff;
+    width: 220px;
+}
+
+.select-btn .btn-text {
+    color: #526174;
+    font-size: 16px;
+}
+
+.select-btn .btn-arrow {
+    display: flex;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    background-color: #599B89;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.select-btn.open .btn-arrow {
+    transform: rotate(-180deg);
+}
+
+.select-btn.open ~ .list-items {
+    display: block;
+}
+
+.list-items {
+    position: absolute;
+    z-index: 10;
+    margin-top: 15px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #526174;
+    background-color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    width: 220px;
+    display: none;
+}
+
+.list-items .item {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0 15px;
+    border-radius: 8px;
+}
+
+.list-items .item:hover {
+    background-color: #f1f1f1;
+}
+
+.list-items input {
+    display: none;
+}
+
+.list-items input+label:before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: 1px solid #526174;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 3px;
+}
+
+.list-items input:checked+label:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--%3E%3Cpath d='M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/%3E%3C/svg%3E");
+    background-color: #599B89;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 14px;
+    border: 1px solid #599B89;
+}
+
+.list-items label {
+    font-size: 18px;
+    color: #526174;
+    display: block;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    gap: 10px;
+}
+
+#button-filter {
+    background-color: #99C6BA;
+    color: #526174;
+    padding: 14px 20px;
+    font-size: 18px;
+    text-align: center;
+    margin-left: 2px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 90px;
+}
+
+#button-filter:hover {
+    background-color: #599B89;
+    color: #ffffff;
+}
+
+.mode {
+    display: flex;
+    position: relative;
+    padding: 8px;
+    background-color: #fff;
+}
+
+.mode .radio-mode {
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0 15px;
+    border-radius: 8px;
+}
+
+.mode .radio-mode input {
+    display: none;
+}
+
+.mode .radio-mode:hover {
+    background-color: #f1f1f1;
+}
+
+.mode input+label:before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #526174;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 3px;
+}
+
+.mode input:checked+label:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3C!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--%3E%3Cpath d='M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/%3E%3C/svg%3E");
+    background-color: #599B89;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    border: 1px solid #599B89;
+}
+
+.mode label {
+    font-size: 18px;
+    color: #526174;
+    display: block;
+    margin: 10px;
+    cursor: pointer;
+}

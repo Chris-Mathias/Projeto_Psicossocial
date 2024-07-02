@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <link rel="stylesheet" type="text/css" href="/static/stylesPages.css">
     {% if title %}
-        <title>Dashboard - {{ title }}</title>
+    <title>Dashboard - {{ title }}</title>
     {% else %}
-        <title>Dashboard</title>
+    <title>Dashboard</title>
     {% endif %}
 </head>
+
 <body>
 
     <header>
@@ -18,7 +20,9 @@
             <h3>Dashboard</h3>
         </div> <!--class="info-header"-->
         <div class="info-header">
-            <i class="fa-solid fa-brain"></i>
+            <div class="logo">
+                <img src="static/logo.png">
+            </div>
         </div> <!--class="info-header"-->
     </header>
 
@@ -27,7 +31,7 @@
             <h3>Menu</h3>
             {% block sidebar %}
             {% endblock %}
-            <br/>
+            <br />
             <hr>
         </div> <!--class="sidebar"-->
 
@@ -37,83 +41,147 @@
                 {% endblock %}
             </div> <!--class="titulo-secao"-->
 
+            <form method="POST">
+
+                <div class="filters">
+
+                    <div class="filter">
+                        <div class="select-btn" id="filter-ano">
+                            <span class="btn-text">Ano</span>
+                            <span class="btn-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+
+                        <ul class="list-items">
+                            <li class="item">
+                                <input id="todos-ano" type="checkbox" checked>
+                                <label for="todos-ano"> Todos </label>
+                            </li>
+                            <li class="item">
+                                <input id="2014" type="checkbox" value="2014" name="years" checked> 
+                                <label for="2014"> 2014 </label>
+                            </li>
+                            <li class="item">
+                                <input id="2015" type="checkbox" value="2015" name="years" checked>
+                                <label for="2015"> 2015 </label>
+                            </li>
+                            <li class="item">
+                                <input id="2016" type="checkbox" value="2016" name="years" checked>
+                                <label for="2016"> 2016 </label>
+                            </li>
+                            <li class="item">
+                                <input id="2017" type="checkbox" value="2017" name="years" checked>
+                                <label for="2017"> 2017 </label>
+                            </li>
+                            <li class="item">
+                                <input id="2018" type="checkbox" value="2018" name="years" checked>
+                                <label for="2018"> 2018 </label>
+                            </li>
+                            <li class="item">
+                                <input id="2019" type="checkbox" value="2019" name="years" checked> 
+                                <label for="2019"> 2019 </label>
+                            </li>
+                            <li class="item">
+                                <input id="2020" type="checkbox" value="2020" name="years" checked>
+                                <label for="2020"> 2020 </label>
+                            </li>
+                            <li class="item">
+                                <input id="2021" type="checkbox" value="2021" name="years" checked>
+                                <label for="2021"> 2021 </label>
+                            </li>
+                            <li class="item">
+                                <input id="2022" type="checkbox" value="2022" name="years" checked>
+                                <label for="2022"> 2022 </label>
+                            </li>
+                            <li class="item">
+                                <input id="2023" type="checkbox" value="2023" name="years" checked>
+                                <label for="2023"> 2023 </label>
+                            </li>
+                        </ul>
+
+                    </div> <!--class="filter"-->
+
+                    <div class="filter">
+                        <div class="select-btn" id="filter-sexo">
+                            <span class="btn-text">Sexo</span>
+                            <span class="btn-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+
+                        <ul class="list-items">
+                            <li class="item">
+                                <input id="todos-sexo" type="checkbox" checked>
+                                <label for="todos-sexo"> Ambos </label>
+                            </li>
+                            <li class="item">
+                                <input id="M" type="checkbox" value="Masculino" name="sexos" checked>
+                                <label for="M"> Masculino </label>
+                            </li>
+                            <li class="item">
+                                <input id="F" type="checkbox" value="Feminino" name="sexos" checked>
+                                <label for="F"> Feminino </label>
+                            </li>
+                        </ul>
+
+                    </div> <!--class="filter"-->
+
+                    <div class="filter">
+                        <div class="select-btn" id="filter-estabelecimento">
+                            <span class="btn-text">Estabelecimento</span>
+                            <span class="btn-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                        </div>
+
+                        <ul class="list-items">
+                            <li class="item">
+                                <input id="todos-estabelecimento" type="checkbox" checked>
+                                <label for="todos-estabelecimento"> Todos </label>
+                            </li>
+                            <li class="item">
+                                <input id="capsi" type="checkbox" value="CENTRO DE ATENCAO PSICOSSOCIAL CAPS INFANTIL" name="estabelecimentos" checked>
+                                <label for="capsi"> CAPS Infantil </label>
+                            </li>
+                            <li class="item">
+                                <input id="capsii" type="checkbox" value="CENTRO DE ATENCAO PSICOSSOCIAL CAPS II" name="estabelecimentos" checked>
+                                <label for="capsii"> CAPS II </label>
+                            </li>
+                        </ul>
+
+                    </div> <!--class="filter"-->
+
+                    <div class="submit">
+                        <ul class="mode">
+                            <li class="radio-mode">
+                                <input id="sum" type="radio" name="modo" value="sum" checked>
+                                <label for="sum">Soma</label>
+                            </li>
+                            <li class="radio-mode">
+                                <input id="compare" type="radio" name="modo" value="compare">
+                                <label for="compare">Comparação</label>
+                            </li>
+                        </ul>
+                        <div class="submit-btn">
+                            <button id="button-filter" type="submit">Filtrar</button>
+                        </div> <!--class="submit-btn"-->
+                    </div> <!--class="submit"-->
+                    
+                </div> <!--class="filters"-->
+
+            </form>
+
             <div class="graph">
-                <div class="filtros">
-                    <form method="POST">
-                        <div class="ano">
-                            <input id="todos-ano" type="checkbox" value="todos-ano" name="years">
-                            <label for="todos-ano"> Todos </label>
-                            <input id="2014" type="checkbox" value="2014" name="years">
-                            <label for="2014"> 2014 </label>
-                            <input id="2015" type="checkbox" value="2015" name="years">
-                            <label for="2015"> 2015 </label>
-                            <input id="2016" type="checkbox" value="2016" name="years">
-                            <label for="2016"> 2016 </label>
-                            <input id="2017" type="checkbox" value="2017" name="years">
-                            <label for="2017"> 2017 </label>
-                            <input id="2018" type="checkbox" value="2018" name="years">
-                            <label for="2018"> 2018 </label>
-                            <input id="2019" type="checkbox" value="2019" name="years">
-                            <label for="2019"> 2019 </label>
-                            <input id="2020" type="checkbox" value="2020" name="years">
-                            <label for="2020"> 2020 </label>
-                            <input id="2021" type="checkbox" value="2021" name="years">
-                            <label for="2021"> 2021 </label>
-                            <input id="2022" type="checkbox" value="2022" name="years">
-                            <label for="2022"> 2022 </label>
-                            <input id="2023" type="checkbox" value="2023" name="years">
-                            <label for="2023"> 2023 </label>
-                        </div> <!--class="ano"-->
-
-                        <div class="ano">
-                            <input id="todos-sexo" type="checkbox" value="todos-sexo" name="sexos">
-                            <label for="todos-sexo"> Ambos </label>
-                            <input id="M" type="checkbox" value="M" name="sexos">
-                            <label for="M"> Masculino </label>
-                            <input id="F" type="checkbox" value="F" name="sexos">
-                            <label for="F"> Feminino </label>
-                        </div> <!--class="sexo"-->
-                        
-                        <button id="button-filter" type="submit">Filtrar</button>
-                    </form>
-                </div> <!--class="filtros"-->
-
+                
                 <div class="plot">
                     {{ plot | safe }}
                 </div> <!--class="plot"-->
 
             </div> <!--class="graph"-->
-            
+
         </div> <!--class="content"-->
 
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
-    <script>
-        window.onload = function() {
-            document.getElementById('todos-ano').addEventListener('change', function() {
-                var checkboxes = document.getElementsByName('years');
-                for (var i = 0; i < checkboxes.length; i++) {
-                    if (checkboxes[i].id != 'todos-ano') {
-                        checkboxes[i].checked = this.checked;
-                    }
-                }
-            });
-        }
-    </script>
-    <script>
-        window.onload = function() {
-            document.getElementById('todos-sexo').addEventListener('change', function() {
-                var checkboxes = document.getElementsByName('sexos');
-                for (var i = 0; i < checkboxes.length; i++) {
-                    if (checkboxes[i].id != 'todos-sexo') {
-                        checkboxes[i].checked = this.checked;
-                    }
-                }
-            });
-        }
-    </script>
+    <script src="static/script.js"></script>
 
 </body>
+
 </html>
