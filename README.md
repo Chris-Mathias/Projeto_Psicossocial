@@ -1,4 +1,4 @@
-#Visualização de Dados de Saúde Psicossocial
+# Visualização de Dados de Saúde Psicossocial
 
 ## Descrição do Projeto
 
@@ -16,8 +16,11 @@ Para rodar o projeto localmente, é necessário ter instalado:
 Python (versão 3.7 ou superior)
 
 Bibliotecas Python:
+
 Plotly (`pip install plotly`)
+
 Flask (`pip install flask`)
+
 Pandas (`pip install pandas`)
 
 ## Como Executar a Aplicação
