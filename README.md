@@ -6,7 +6,7 @@ Este projeto tem como objetivo explorar e visualizar dados referentes à saúde 
 
 Através de gráficos interativos e dashboards, a aplicação permite a análise de dados relacionados à saúde mental e fatores psicossociais que afetam indivíduos e comunidades. A visualização é feita utilizando bibliotecas populares de Python, como Plotly e Pandas, com a aplicação web sendo gerenciada via Flask.
 
-* Aviso Importante
+- Aviso Importante:
 
 Este projeto não tem fins comerciais ou clínicos e não deve ser usado para diagnósticos ou outras decisões relacionadas à saúde. As análises e visualizações são puramente acadêmicas, e os dados podem conter erros ou simplificações.
 
@@ -47,8 +47,13 @@ python interface.py
 Após iniciar o servidor, você poderá acessar o dashboard através do navegador, utilizando o endereço que aparecerá no terminal.
 
 ## Estrutura do Projeto
+
 interface.py: Arquivo principal que contém a lógica para a criação da aplicação web e renderização das páginas.
+
 graphs.py: Arquivo que contém a lógica para o tratamento dos dados e criação dos gráficos.
+
 templates/: Pasta contendo os arquivos HTML usados para exibir a interface.
+
 static/: Arquivos estáticos como CSS, imagens e scripts JS.
+
 data/: Diretório onde os arquivos de dados são armazenados para análise e visualização previamente tratados.
